@@ -239,11 +239,12 @@
     }
 
     .hero-title {
-      font-size: clamp(1.8rem, 3.8vw, 3rem);
-      line-height: 1.08;
+      font-size: clamp(1.55rem, 2.9vw, 2.35rem);
+      line-height: 1.22;
       font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.9rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.1rem;
+      max-width: 780px;
     }
 
     .hero-title span {
@@ -252,29 +253,24 @@
       color: transparent;
     }
 
-    .hero-text {
-      max-width: 720px;
-      font-size: 0.87rem;
-      line-height: 1.72;
-      color: rgba(229, 238, 251, 0.7);
-      margin-bottom: 1.15rem;
-    }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.4rem; }
 
-    .hero-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.3rem; }
-
-    .hero-badge {
+    .hero-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.42rem 0.78rem;
+      gap: 0.45rem;
+      padding: 0.5rem 0.95rem;
       border-radius: 999px;
-      font-size: 0.72rem;
+      font-size: 0.76rem;
+      font-weight: 600;
       color: #e0f2fe;
-      border: 1px solid rgba(148, 163, 184, 0.16);
+      border: 1px solid rgba(148, 163, 184, 0.18);
       background: rgba(15, 23, 42, 0.6);
+      transition: 0.2s ease;
     }
 
-    .hero-badge .icon { width: 14px; height: 14px; }
+    .hero-pill:hover { border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.1); }
+    .hero-pill .icon { width: 15px; height: 15px; color: var(--cyan); }
 
     .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; }
 
@@ -316,6 +312,98 @@
     }
 
     .btn-outline:hover { border-color: rgba(56, 189, 248, 0.5); background: rgba(56, 189, 248, 0.08); }
+
+    /* ===== 6 Grandes serviços ===== */
+    .big-services { padding-top: 1rem; }
+
+    .big-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.15rem; }
+
+    .big-card {
+      position: relative;
+      display: block;
+      min-height: 260px;
+      border-radius: 20px;
+      overflow: hidden;
+      text-decoration: none;
+      background-color: #050a14;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .big-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 22px 55px rgba(2, 6, 23, 0.6), 0 0 30px rgba(99, 102, 241, 0.2);
+    }
+
+    .big-card-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(3, 7, 18, 0.35) 0%, rgba(3, 7, 18, 0.55) 45%, rgba(3, 7, 18, 0.94) 100%);
+      transition: background 0.3s ease;
+    }
+
+    .big-card:hover .big-card-shade {
+      background: linear-gradient(180deg, rgba(3, 7, 18, 0.2) 0%, rgba(3, 7, 18, 0.45) 40%, rgba(3, 7, 18, 0.95) 100%);
+    }
+
+    .big-card-body {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 1.25rem 1.3rem 1.4rem;
+    }
+
+    .big-card-icon {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.24), rgba(168, 85, 247, 0.24));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .big-card h3 { font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem; }
+    .big-card p { font-size: 0.78rem; line-height: 1.55; color: rgba(229, 238, 251, 0.72); margin-bottom: 0.8rem; }
+
+    .big-card-cta {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.76rem; font-weight: 700; color: #fff;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      box-shadow: 0 0 18px rgba(99, 102, 241, 0.32);
+    }
+
+    .big-card-cta .icon { width: 14px; height: 14px; transition: transform 0.2s ease; }
+    .big-card:hover .big-card-cta .icon { transform: translateX(3px); }
+
+    /* ===== Logos de clientes ===== */
+    .logos-section { padding: 2.6rem 0; }
+    .logos-label { text-align: center; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.04em; color: rgba(229, 238, 251, 0.45); margin-bottom: 1.4rem; }
+    .logos-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.3rem 2.4rem; }
+
+    .logo-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      background: rgba(10, 18, 36, 0.4);
+      color: rgba(229, 238, 251, 0.4);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      filter: grayscale(1);
+      opacity: 0.6;
+      transition: 0.25s ease;
+    }
+
+    .logo-chip:hover { filter: grayscale(0); opacity: 1; border-color: rgba(56, 189, 248, 0.3); color: #fff; }
+    .logo-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(90deg, var(--cyan), var(--purple)); flex: 0 0 auto; }
 
     /* ===== Controles do carrossel ===== */
     .hero-controls {
@@ -769,6 +857,18 @@
       font-size: 0.72rem; color: rgba(159, 176, 203, 0.6);
     }
 
+    .footer-social { display: flex; gap: 0.6rem; margin-top: 0.9rem; }
+    .footer-social a {
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      background: rgba(10, 18, 36, 0.6);
+      color: rgba(229, 238, 251, 0.7);
+      transition: 0.2s ease;
+    }
+    .footer-social a:hover { color: #fff; border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.12); }
+    .footer-social .icon { width: 16px; height: 16px; }
+
     .whatsapp {
       position: fixed; right: 20px; bottom: 20px; width: 58px; height: 58px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center; text-decoration: none; color: #fff;
@@ -785,6 +885,7 @@
       .process-track::before { display: none; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .big-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 768px) {
@@ -797,9 +898,10 @@
       .hero, .slide img { height: 46vh; min-height: 260px; }
       .hero-intro { padding: 2.2rem 0 2.6rem; }
       .hero-panel { padding: 1.4rem; border-radius: 20px; }
-      .hero-text { font-size: 0.82rem; }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .btn-primary, .btn-secondary { width: 100%; }
+      .big-grid { grid-template-columns: 1fr; }
+      .logos-row { gap: 0.8rem 1.4rem; }
 
       .section-wrap, .services-detail, .contato { padding-left: 1rem; padding-right: 1rem; }
       .promo-card, .contato-card { padding: 1.4rem; }
@@ -813,6 +915,45 @@
     @media (prefers-reduced-motion: reduce) {
       * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
     }
+
+
+    /* ===== Melhorias comerciais ===== */
+    .trust-bar { border-top: 1px solid rgba(148,163,184,.12); border-bottom: 1px solid rgba(148,163,184,.12); background: linear-gradient(90deg, rgba(8,14,28,.94), rgba(10,12,26,.94)); }
+    .trust-grid { max-width:1280px; margin:0 auto; padding:1.45rem 1.5rem; display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+    .trust-item { display:flex; align-items:center; justify-content:center; gap:.65rem; text-align:left; color:rgba(229,238,251,.82); font-size:.76rem; font-weight:600; }
+    .trust-item .icon { width:20px; height:20px; color:var(--cyan); flex:0 0 auto; }
+
+    .portfolio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.15rem; }
+    .project-card { position:relative; overflow:hidden; min-height:260px; border-radius:20px; border:1px solid rgba(148,163,184,.13); background:linear-gradient(160deg,rgba(13,24,48,.95),rgba(5,10,20,.96)); box-shadow:var(--shadow-soft); opacity:0; transform:translateY(20px); transition:.35s ease; }
+    .project-card.revealed { opacity:1; transform:translateY(0); }
+    .project-card:hover { transform:translateY(-6px); border-color:rgba(56,189,248,.32); }
+    .project-visual { height:145px; display:flex; align-items:center; justify-content:center; background:radial-gradient(circle at 20% 20%,rgba(56,189,248,.25),transparent 32%),radial-gradient(circle at 80% 10%,rgba(168,85,247,.25),transparent 30%),#06101f; border-bottom:1px solid rgba(148,163,184,.1); }
+    .project-screen { width:76%; height:78%; border-radius:12px; border:1px solid rgba(255,255,255,.18); background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.03)); box-shadow:0 18px 35px rgba(0,0,0,.35); padding:.65rem; }
+    .project-screen::before { content:""; display:block; width:42%; height:7px; border-radius:999px; background:linear-gradient(90deg,var(--cyan),var(--purple)); margin-bottom:.65rem; }
+    .project-lines { display:grid; gap:.4rem; }
+    .project-lines span { display:block; height:6px; border-radius:999px; background:rgba(229,238,251,.13); }
+    .project-lines span:nth-child(2){width:82%}.project-lines span:nth-child(3){width:65%}.project-lines span:nth-child(4){width:90%}
+    .project-body { padding:1.2rem; }
+    .project-tag { display:inline-block; font-size:.62rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#bae6fd; margin-bottom:.45rem; }
+    .project-body h3 { font-size:.95rem; color:#fff; margin-bottom:.45rem; }
+    .project-body p { font-size:.75rem; line-height:1.6; color:rgba(229,238,251,.58); }
+
+    .guarantee-card { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; padding:1.35rem; border:1px solid rgba(96,165,250,.18); border-radius:22px; background:linear-gradient(135deg,rgba(7,15,30,.9),rgba(10,16,35,.82)); box-shadow:var(--shadow-neon); }
+    .guarantee-item { display:flex; gap:.7rem; align-items:flex-start; }
+    .guarantee-item .icon { width:21px; height:21px; color:var(--cyan); flex:0 0 auto; margin-top:.1rem; }
+    .guarantee-item strong { display:block; font-size:.8rem; color:#fff; margin-bottom:.2rem; }
+    .guarantee-item span { display:block; font-size:.7rem; line-height:1.5; color:rgba(229,238,251,.55); }
+
+    .faq-list { max-width:900px; margin:0 auto; display:grid; gap:.85rem; }
+    .faq-item { border:1px solid rgba(148,163,184,.12); border-radius:16px; background:linear-gradient(180deg,rgba(10,18,36,.8),rgba(5,10,20,.84)); overflow:hidden; }
+    .faq-question { width:100%; border:0; background:transparent; color:#fff; padding:1rem 1.15rem; display:flex; justify-content:space-between; gap:1rem; text-align:left; cursor:pointer; font:700 .82rem 'Sora','Poppins',sans-serif; }
+    .faq-question span:last-child { color:var(--cyan); font-size:1.05rem; }
+    .faq-answer { max-height:0; overflow:hidden; transition:max-height .3s ease; }
+    .faq-answer p { padding:0 1.15rem 1rem; font-size:.76rem; line-height:1.68; color:rgba(229,238,251,.62); }
+
+    @media (max-width:980px){ .portfolio-grid{grid-template-columns:1fr 1fr}.trust-grid{grid-template-columns:1fr 1fr}.guarantee-card{grid-template-columns:1fr} }
+    @media (max-width:640px){ .portfolio-grid,.trust-grid{grid-template-columns:1fr}.trust-item{justify-content:flex-start}.project-card{min-height:240px} }
+
   </style>
 </head>
 <body>
@@ -842,6 +983,9 @@
       <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></symbol>
       <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></symbol>
       <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3"/><line x1="7" y1="10" x2="7" y2="17"/><circle cx="7" cy="6.5" r="1.3"/><path d="M11 17v-4.5a2.5 2.5 0 015 0V17"/><line x1="11" y1="10" x2="11" y2="17"/></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 9h3V6h-3a4 4 0 00-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2a1 1 0 011-1z"/></symbol>
     </defs>
   </svg>
 
@@ -899,20 +1043,16 @@
           <span class="hero-kicker">Tecnologia • Estratégia • Performance</span>
 
           <h2 class="hero-title">
-            <span>Sites, Sistemas, Apps</span><br />
-            Marketing e Automação
+            Transformamos ideias em <span>soluções digitais</span> que geram resultados.
           </h2>
 
-          <p class="hero-text">
-            Criamos soluções digitais modernas, rápidas e estrategicamente pensadas para valorizar sua marca, gerar credibilidade e transformar visitantes em clientes. Também cuidamos do seu marketing digital — tráfego pago, SEO e geração de leads — e automatizamos processos e demandas manuais para sua empresa ganhar tempo e produtividade.
-          </p>
-
-          <div class="hero-badges">
-            <span class="hero-badge"><svg class="icon"><use href="#i-zap"/></svg> Alta performance</span>
-            <span class="hero-badge"><svg class="icon"><use href="#i-trending"/></svg> Marketing digital</span>
-            <span class="hero-badge"><svg class="icon"><use href="#i-settings"/></svg> Automação de processos</span>
-            <span class="hero-badge"><svg class="icon"><use href="#i-shield-check"/></svg> Segurança digital</span>
-            <span class="hero-badge"><svg class="icon"><use href="#i-phone"/></svg> Integração com WhatsApp</span>
+          <div class="hero-pills">
+            <span class="hero-pill"><svg class="icon"><use href="#i-globe"/></svg> Sites</span>
+            <span class="hero-pill"><svg class="icon"><use href="#i-settings"/></svg> Sistemas</span>
+            <span class="hero-pill"><svg class="icon"><use href="#i-smartphone"/></svg> Aplicativos</span>
+            <span class="hero-pill"><svg class="icon"><use href="#i-zap"/></svg> Automações</span>
+            <span class="hero-pill"><svg class="icon"><use href="#i-trending"/></svg> Marketing Digital</span>
+            <span class="hero-pill"><svg class="icon"><use href="#i-shield-check"/></svg> Segurança</span>
           </div>
 
           <div class="hero-actions">
@@ -925,25 +1065,100 @@
       </div>
     </section>
 
-    <!-- ============ STATS ============ -->
-    <section class="stats-bar">
-      <div class="stats-grid">
-        <div>
-          <div class="stat-num">+8</div>
-          <div class="stat-label">anos de atuação em tecnologia</div>
+    <!-- ============ 6 GRANDES SERVIÇOS ============ -->
+    <section class="block big-services">
+      <div class="section-wrap">
+        <div class="section-head">
+          <span class="section-kicker">Sua empresa precisa vender mais?</span>
+          <h2 class="section-title">Nós desenvolvemos a tecnologia que faz isso acontecer</h2>
+          <p class="section-subtitle">Escolha a frente que sua empresa precisa agora e fale direto com um especialista.</p>
         </div>
-        <div>
-          <div class="stat-num">+180</div>
-          <div class="stat-label">projetos entregues</div>
+
+        <div class="big-grid">
+          <a class="big-card tilt" style="background-image:url('assets/img/01-sites.png')" href="https://wa.me/5527999243874?text=Olá!%20Quero%20solicitar%20um%20orçamento%20de%20Site." target="_blank" rel="noopener">
+            <div class="big-card-shade"></div>
+            <div class="big-card-body">
+              <div class="big-card-icon"><svg class="icon"><use href="#i-globe"/></svg></div>
+              <h3>Sites Profissionais</h3>
+              <p>Presença digital moderna, rápida e feita para converter.</p>
+              <span class="big-card-cta">Solicitar orçamento <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+            </div>
+          </a>
+
+          <a class="big-card tilt" style="background-image:url('assets/img/03-aplicativos.png')" href="https://wa.me/5527999243874?text=Olá!%20Quero%20solicitar%20um%20orçamento%20de%20Aplicativo." target="_blank" rel="noopener">
+            <div class="big-card-shade"></div>
+            <div class="big-card-body">
+              <div class="big-card-icon"><svg class="icon"><use href="#i-smartphone"/></svg></div>
+              <h3>Aplicativos</h3>
+              <p>Apps nativos e híbridos para Android, iOS e Web.</p>
+              <span class="big-card-cta">Solicitar orçamento <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+            </div>
+          </a>
+
+          <a class="big-card tilt" style="background-image:url('assets/img/02-sistemas.png')" href="https://wa.me/5527999243874?text=Olá!%20Quero%20solicitar%20um%20orçamento%20de%20Sistema%20Web." target="_blank" rel="noopener">
+            <div class="big-card-shade"></div>
+            <div class="big-card-body">
+              <div class="big-card-icon"><svg class="icon"><use href="#i-settings"/></svg></div>
+              <h3>Sistemas Web</h3>
+              <p>Plataformas sob medida para gestão e produtividade.</p>
+              <span class="big-card-cta">Solicitar orçamento <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+            </div>
+          </a>
+
+          <a class="big-card tilt" style="background-image:url('assets/img/04-automacao-processos.png')" href="https://wa.me/5527999243874?text=Olá!%20Quero%20solicitar%20um%20orçamento%20de%20Automação." target="_blank" rel="noopener">
+            <div class="big-card-shade"></div>
+            <div class="big-card-body">
+              <div class="big-card-icon"><svg class="icon"><use href="#i-zap"/></svg></div>
+              <h3>Automação</h3>
+              <p>Processos e demandas manuais automatizados de ponta a ponta.</p>
+              <span class="big-card-cta">Solicitar orçamento <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+            </div>
+          </a>
+
+          <a class="big-card tilt" style="background-image:url('assets/img/09-trafego-pago.png')" href="https://wa.me/5527999243874?text=Olá!%20Quero%20solicitar%20um%20orçamento%20de%20Marketing%20Digital." target="_blank" rel="noopener">
+            <div class="big-card-shade"></div>
+            <div class="big-card-body">
+              <div class="big-card-icon"><svg class="icon"><use href="#i-trending"/></svg></div>
+              <h3>Marketing Digital</h3>
+              <p>Tráfego pago, SEO e geração de leads que geram vendas.</p>
+              <span class="big-card-cta">Solicitar orçamento <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+            </div>
+          </a>
+
+          <a class="big-card tilt" style="background-image:url('assets/img/11-seguranca.png')" href="https://wa.me/5527999243874?text=Olá!%20Quero%20solicitar%20um%20orçamento%20de%20Segurança%20Digital." target="_blank" rel="noopener">
+            <div class="big-card-shade"></div>
+            <div class="big-card-body">
+              <div class="big-card-icon"><svg class="icon"><use href="#i-shield"/></svg></div>
+              <h3>Segurança Digital</h3>
+              <p>Pentest, monitoramento e proteção de dados para o seu negócio.</p>
+              <span class="big-card-cta">Solicitar orçamento <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+            </div>
+          </a>
         </div>
-        <div>
-          <div class="stat-num">+60</div>
-          <div class="stat-label">empresas atendidas</div>
+      </div>
+    </section>
+
+    <!-- ============ LOGOS DE CLIENTES ============ -->
+    <section class="logos-section">
+      <div class="section-wrap">
+        <p class="logos-label">EMPRESAS QUE CONFIAM NA DIANA CODE</p>
+        <div class="logos-row">
+          <span class="logo-chip"><span class="dot"></span>Nexo Tecnologia</span>
+          <span class="logo-chip"><span class="dot"></span>Grupo Vértice</span>
+          <span class="logo-chip"><span class="dot"></span>Altiva Corp</span>
+          <span class="logo-chip"><span class="dot"></span>Prisma Comércio</span>
+          <span class="logo-chip"><span class="dot"></span>Orbe Serviços</span>
         </div>
-        <div>
-          <div class="stat-num">98%</div>
-          <div class="stat-label">de satisfação dos clientes</div>
-        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAIXA DE CONFIANÇA ============ -->
+    <section class="trust-bar" aria-label="Compromissos da Diana Code">
+      <div class="trust-grid">
+        <div class="trust-item"><svg class="icon"><use href="#i-target"/></svg><span>Soluções realmente sob medida</span></div>
+        <div class="trust-item"><svg class="icon"><use href="#i-clock"/></svg><span>Escopo e prazos transparentes</span></div>
+        <div class="trust-item"><svg class="icon"><use href="#i-shield-check"/></svg><span>Segurança desde o projeto</span></div>
+        <div class="trust-item"><svg class="icon"><use href="#i-headset"/></svg><span>Suporte após a entrega</span></div>
       </div>
     </section>
 
@@ -1075,6 +1290,32 @@
       </div>
     </section>
 
+
+    <!-- ============ PORTFÓLIO ============ -->
+    <section class="block" id="portfolio">
+      <div class="section-wrap">
+        <div class="section-head">
+          <span class="section-kicker">Projetos e Soluções</span>
+          <h2 class="section-title">Tecnologia aplicada a desafios reais de negócio</h2>
+          <p class="section-subtitle">Exemplos das soluções que a Diana Code desenvolve. Os projetos são personalizados conforme a operação, o público e os objetivos de cada cliente.</p>
+        </div>
+        <div class="portfolio-grid">
+          <article class="project-card scroll-item">
+            <div class="project-visual"><div class="project-screen"><div class="project-lines"><span></span><span></span><span></span><span></span></div></div></div>
+            <div class="project-body"><span class="project-tag">Presença digital</span><h3>Site institucional de alta conversão</h3><p>Estrutura responsiva, integração com WhatsApp, SEO técnico e apresentação profissional dos serviços.</p></div>
+          </article>
+          <article class="project-card scroll-item">
+            <div class="project-visual"><div class="project-screen"><div class="project-lines"><span></span><span></span><span></span><span></span></div></div></div>
+            <div class="project-body"><span class="project-tag">Gestão e produtividade</span><h3>Sistema web sob medida</h3><p>Painéis, cadastros, permissões, relatórios e automações alinhados ao fluxo real da empresa.</p></div>
+          </article>
+          <article class="project-card scroll-item">
+            <div class="project-visual"><div class="project-screen"><div class="project-lines"><span></span><span></span><span></span><span></span></div></div></div>
+            <div class="project-body"><span class="project-tag">Marketing e vendas</span><h3>Funil de captação de leads</h3><p>Landing page, campanhas, formulários e integração com WhatsApp para transformar interesse em oportunidades.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ PROCESSO ============ -->
     <section class="block">
       <div class="section-wrap">
@@ -1157,39 +1398,36 @@
       </div>
     </section>
 
-    <!-- ============ DEPOIMENTOS ============ -->
+    <!-- ============ COMPROMISSOS ============ -->
     <section class="block">
       <div class="section-wrap">
         <div class="section-head">
-          <span class="section-kicker">Depoimentos</span>
-          <h2 class="section-title">O que dizem sobre trabalhar com a Diana Code</h2>
+          <span class="section-kicker">Compromisso de Entrega</span>
+          <h2 class="section-title">Mais segurança e previsibilidade para o seu projeto</h2>
+          <p class="section-subtitle">Cada contratação é conduzida com critérios claros, documentação e acompanhamento próximo.</p>
         </div>
+        <div class="guarantee-card">
+          <div class="guarantee-item"><svg class="icon"><use href="#i-clock"/></svg><div><strong>Cronograma definido</strong><span>Etapas, entregas e responsabilidades alinhadas antes do início.</span></div></div>
+          <div class="guarantee-item"><svg class="icon"><use href="#i-layers"/></svg><div><strong>Projeto documentado</strong><span>Escopo, funcionalidades e orientações organizados para facilitar a continuidade.</span></div></div>
+          <div class="guarantee-item"><svg class="icon"><use href="#i-headset"/></svg><div><strong>Suporte pós-entrega</strong><span>Acompanhamento inicial para ajustes, dúvidas e estabilização da solução.</span></div></div>
+        </div>
+      </div>
+    </section>
 
-        <div class="testi-grid">
-          <div class="testi-card scroll-item">
-            <div class="testi-stars">★★★★★</div>
-            <p class="quote">"O novo sistema reduziu nosso tempo operacional em quase 40%. Time atento, entrega no prazo e suporte de verdade depois do go-live."</p>
-            <div class="testi-author">
-              <div class="testi-avatar">RM</div>
-              <div><strong>Ricardo Menezes</strong><span>Diretor de Operações</span></div>
-            </div>
-          </div>
-          <div class="testi-card scroll-item">
-            <div class="testi-stars">★★★★★</div>
-            <p class="quote">"Nosso site ficou rápido, moderno e passou a gerar leads qualificados todos os dias. Processo transparente do início ao fim."</p>
-            <div class="testi-author">
-              <div class="testi-avatar">CA</div>
-              <div><strong>Camila Alves</strong><span>Gerente de Marketing</span></div>
-            </div>
-          </div>
-          <div class="testi-card scroll-item">
-            <div class="testi-stars">★★★★★</div>
-            <p class="quote">"A auditoria de segurança identificou pontos críticos que nem sabíamos que existiam. Hoje temos muito mais tranquilidade."</p>
-            <div class="testi-author">
-              <div class="testi-avatar">JS</div>
-              <div><strong>Julio Santos</strong><span>CTO</span></div>
-            </div>
-          </div>
+
+    <!-- ============ FAQ ============ -->
+    <section class="block alt" id="faq">
+      <div class="section-wrap">
+        <div class="section-head">
+          <span class="section-kicker">Perguntas Frequentes</span>
+          <h2 class="section-title">Informações para contratar com segurança</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item"><button class="faq-question" type="button"><span>Quanto tempo leva para desenvolver um projeto?</span><span>+</span></button><div class="faq-answer"><p>O prazo depende do escopo. Sites institucionais simples podem ser entregues em poucas semanas, enquanto sistemas e aplicativos exigem planejamento por etapas. O cronograma é apresentado antes do início.</p></div></div>
+          <div class="faq-item"><button class="faq-question" type="button"><span>O projeto funciona em celular e computador?</span><span>+</span></button><div class="faq-answer"><p>Sim. Sites e sistemas web são desenvolvidos com layout responsivo para oferecer boa experiência em celulares, tablets e computadores.</p></div></div>
+          <div class="faq-item"><button class="faq-question" type="button"><span>A Diana Code oferece suporte depois da entrega?</span><span>+</span></button><div class="faq-answer"><p>Sim. O projeto inclui acompanhamento inicial e também pode contar com planos de manutenção, suporte e evolução contínua.</p></div></div>
+          <div class="faq-item"><button class="faq-question" type="button"><span>É possível integrar WhatsApp, pagamentos ou outros sistemas?</span><span>+</span></button><div class="faq-answer"><p>Sim. A viabilidade é avaliada conforme as APIs e ferramentas utilizadas. Integrações podem incluir WhatsApp, meios de pagamento, formulários, CRMs, bancos de dados e serviços externos.</p></div></div>
+          <div class="faq-item"><button class="faq-question" type="button"><span>Como funciona o orçamento?</span><span>+</span></button><div class="faq-answer"><p>Primeiro entendemos a necessidade, os objetivos e as funcionalidades desejadas. Depois apresentamos uma proposta com escopo, prazo, investimento e condições de entrega.</p></div></div>
         </div>
       </div>
     </section>
@@ -1521,10 +1759,10 @@
 
       <div class="footer-col">
         <h4>Empresa</h4>
-        <a href="#" onclick="return false;">Sobre nós</a>
-        <a href="#" onclick="return false;">Portfólio</a>
-        <a href="#" onclick="return false;">Diferenciais</a>
-        <a href="#" onclick="return false;">Depoimentos</a>
+        <a href="#home">Sobre nós</a>
+        <a href="#portfolio">Projetos e soluções</a>
+        <a href="#servicos-grid">Diferenciais</a>
+        <a href="#faq">Perguntas frequentes</a>
       </div>
 
       <div class="footer-col">
@@ -1532,6 +1770,13 @@
         <span>(27) 99924-3874</span>
         <span>contato@dianacode.com.br</span>
         <span>Atendimento remoto — todo o Brasil</span>
+        <span>Segunda a sexta, 9h às 18h</span>
+        <div class="footer-social">
+          <a href="https://wa.me/5527999243874" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon"><use href="#i-phone"/></svg></a>
+          <a href="#" onclick="return false;" aria-label="Instagram"><svg class="icon"><use href="#i-instagram"/></svg></a>
+          <a href="#" onclick="return false;" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a>
+          <a href="#" onclick="return false;" aria-label="Facebook"><svg class="icon"><use href="#i-facebook"/></svg></a>
+        </div>
       </div>
     </div>
 
@@ -1688,6 +1933,21 @@
       });
     });
 
+    // ===== FAQ =====
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const answer = button.nextElementSibling;
+        const sign = button.querySelector('span:last-child');
+        const opened = answer.style.maxHeight;
+        document.querySelectorAll('.faq-answer').forEach(item => item.style.maxHeight = null);
+        document.querySelectorAll('.faq-question span:last-child').forEach(item => item.textContent = '+');
+        if (!opened) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          sign.textContent = '–';
+        }
+      });
+    });
+
     // ===== Reveal on scroll =====
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1699,6 +1959,27 @@
     }, { threshold: 0.14 });
 
     document.querySelectorAll('.scroll-item').forEach(el => observer.observe(el));
+
+    // ===== Tilt 3D leve nos cards =====
+    const tiltEls = document.querySelectorAll('.big-card, .card, .project-card');
+    const isTouch = matchMedia('(hover: none)').matches;
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!isTouch && !reduceMotion) {
+      tiltEls.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+          const rect = el.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          const rotX = (-y * 6).toFixed(2);
+          const rotY = (x * 6).toFixed(2);
+          el.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
+        });
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = '';
+        });
+      });
+    }
   </script>
 </body>
 </html>
